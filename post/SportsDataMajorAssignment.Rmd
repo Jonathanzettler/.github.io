@@ -14,7 +14,7 @@ library(waffle)
 library(ggplot2)
 ```
 ```{r}
-FootballData <- read_csv("Data/CopyOfCollegeFootballProjectLogs2.csv")
+FootballData <- read_csv("CopyOfCollegeFootballProjectLogs2.csv")
 ```
 ```{r}
 FootballYardsPerGame <- FootballData %>% select(Team, YPG) 
