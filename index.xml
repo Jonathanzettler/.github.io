@@ -5,7 +5,8 @@
     <link>http://Jonathanzettler.githhub.io/</link>
     <description>Recent content on Jonathan&#39;s GitHub Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://Jonathanzettler.githhub.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://Jonathanzettler.githhub.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Jonathan Zettler</title>
       <link>http://Jonathanzettler.githhub.io/about/</link>
@@ -13,6 +14,15 @@
       
       <guid>http://Jonathanzettler.githhub.io/about/</guid>
       <description>Hi! My name is Jonathan Zettler. This is my blog for SPMC 350.</description>
+    </item>
+    
+    <item>
+      <title>First Major Sports Data Assignment</title>
+      <link>http://Jonathanzettler.githhub.io/2021/10/12/assignment/</link>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://Jonathanzettler.githhub.io/2021/10/12/assignment/</guid>
+      <description></description>
     </item>
     
   </channel>

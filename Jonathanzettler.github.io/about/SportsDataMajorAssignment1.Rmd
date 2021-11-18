@@ -1,0 +1,19 @@
+
+```{r}
+library(tidyverse)
+```
+```{r}
+FootballData <- read_csv("data/CollegeFootballProjectLogs.csv")
+```
+```{r}
+FootballYardsPerGame <- FootballData %>% select(...2, ...15) %>%
+  filter( ...2 == "Notre Dame")
+```
+```{r}
+ggplot() + 
+  geom_point(data=FootballYardsPerGame, aes(x=...2, y=...15)) +
+  geom_smooth(data=FootballYardsPerGame, aes(x=...2, y=...15), method="lm")
+```
+
+
+
