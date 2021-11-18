@@ -1,0 +1,63 @@
+---
+title: Sports Data Major Assignment Project
+author: R package build
+date: '2021-11-16'
+slug: sports-data-major-assignment-project
+categories: []
+tags: []
+---
+```{r}
+library(readr)
+library(tidyverse)
+library(scales)
+library(waffle)
+library(ggplot2)
+```
+```{r}
+FootballData <- read_csv("Data/CopyOfCollegeFootballProjectLogs2.csv")
+```
+```{r}
+FootballYardsPerGame <- FootballData %>% select(Team, YPG) 
+```
+```{r}
+OneLossTeamsTop25Teams <- c("Notre Dame", "Alabama", "Ohio St.", "Oregon", "Michigan", "Oklahoma State", "Baylor", "Houston", "SMU" )
+```
+```{r}
+FootbaLlYardsPerGameTop25 <- FootballYardsPerGame %>% filter(Team %in% OneLossTeamsTop25Teams)
+```
+
+
+
+
+```{r}
+ ggplot(FootbaLlYardsPerGameTop25, aes(x = reorder(Team, -YPG), weight = YPG)) + 
+  geom_bar() +
+  scale_y_continuous(labels = comma) + 
+  labs(title = "Notre Dame's Team Offense Against Other One Loss Teams", 
+      x = "Teams", y = "Offensive Yards Per Game", caption ="Source: NCAA | By Jonathan Zettler") +
+    theme_light()
+
+```
+```{r}
+ND <- c("YPG" = 389)
+
+OSU <- c("YPG" = 548)
+```
+```{r}
+iron(
+ waffle(ND, rows = 10, title="1-Loss Notre Dame's Offensive Yards Per Game", xlab="1 square = 1 yard", colors = c("Blue")),
+ waffle(OSU, rows = 10, title="1-Loss Ohio State's Offensive Yards Per Game", xlab="1 square = 1 yard", colors = c("Red"))
+)
+```
+```{r}
+FootballTouchdownsPerGame <- FootballData %>% select(Team, 'YPG', 'OFF TDs')
+```
+```{r}
+FootbaLlTouchdownsPerGameTop25 <- FootballTouchdownsPerGame %>% filter(Team %in% OneLossTeamsTop25Teams)
+```
+
+```{r}
+ggplot(FootbaLlTouchdownsPerGameTop25, aes(x=OFF TDs, y=YPG)) + 
+  geom_point()
+```
+
