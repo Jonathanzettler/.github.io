@@ -22,6 +22,11 @@
 
 
 
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 
@@ -57,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">0 min read</span>
+    <span class="article-duration">1 min read</span>
     
 
     <h1 class="article-title">First Major Sports Data Assignment</h1>
@@ -67,7 +72,32 @@
     
 
     <div class="article-content">
-      
+      <pre tabindex="0"><code class="language-{r}" data-lang="{r}">library(readr)
+library(tidyverse)
+library(scales)
+library(waffle)
+library(ggplot2)
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">FootballData &lt;- read_csv(&quot;Data/CopyOfCollegeFootballProjectLogs2.csv&quot;)
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">FootballYardsPerGame &lt;- FootballData %&gt;% select(Team, YPG) 
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">OneLossTeamsTop25Teams &lt;- c(&quot;Notre Dame&quot;, &quot;Alabama&quot;, &quot;Ohio St.&quot;, &quot;Oregon&quot;, &quot;Michigan&quot;, &quot;Oklahoma State&quot;, &quot;Baylor&quot;, &quot;Houston&quot;, &quot;SMU&quot; )
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">FootbaLlYardsPerGameTop25 &lt;- FootballYardsPerGame %&gt;% filter(Team %in% OneLossTeamsTop25Teams)
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}"> ggplot(FootbaLlYardsPerGameTop25, aes(x = reorder(Team, -YPG), weight = YPG)) + 
+  geom_bar() +
+  scale_y_continuous(labels = comma) + 
+  labs(title = &quot;Notre Dame's Team Offense Against Other One Loss Teams&quot;, 
+      x = &quot;Teams&quot;, y = &quot;Offensive Yards Per Game&quot;, caption =&quot;Source: NCAA | By Jonathan Zettler&quot;) +
+    theme_light()
+
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">ND &lt;- c(&quot;YPG&quot; = 389)
+
+OSU &lt;- c(&quot;YPG&quot; = 548)
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">iron(
+ waffle(ND, rows = 10, title=&quot;1-Loss Notre Dame's Offensive Yards Per Game&quot;, xlab=&quot;1 square = 1 yard&quot;, colors = c(&quot;Blue&quot;)),
+ waffle(OSU, rows = 10, title=&quot;1-Loss Ohio State's Offensive Yards Per Game&quot;, xlab=&quot;1 square = 1 yard&quot;, colors = c(&quot;Red&quot;))
+)
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">FootballTouchdownsPerGame &lt;- FootballData %&gt;% select(Team, 'YPG', 'OFF TDs')
+</code></pre><pre tabindex="0"><code class="language-{r}" data-lang="{r}">FootbaLlTouchdownsPerGameTop25 &lt;- FootballTouchdownsPerGame %&gt;% filter(Team %in% OneLossTeamsTop25Teams)
+</code></pre>
     </div>
   </article>
 
@@ -89,6 +119,18 @@
 
     </div>
     
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
     
 
