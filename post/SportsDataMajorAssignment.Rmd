@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 ```{r}
-library(readr)
+library(readr)t
 library(tidyverse)
 library(scales)
 library(waffle)
