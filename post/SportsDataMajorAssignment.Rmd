@@ -58,6 +58,6 @@ FootbaLlTouchdownsPerGameTop25 <- FootballTouchdownsPerGame %>% filter(Team %in%
 
 ```{r}
 ggplot(FootbaLlTouchdownsPerGameTop25, aes(x=OFF TDs, y=YPG)) + 
-  geom_point()l
+  geom_point()
 ```
 
