@@ -1,5 +1,5 @@
 ---
-title: Sports Data Major Assignment Project
+title: Sports Datas Major Assignment Project
 author: R package build
 date: '2021-11-16'
 slug: sports-data-major-assignment-project
